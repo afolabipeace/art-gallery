@@ -14,16 +14,21 @@ export class ViewComponent implements OnInit {
   public id:any = '';
   public oneObj:any={};
   public infoArray:any = [];
-ngOnInit(): void {
-  let id = this.actRoute.snapshot.params['id'];
-  this.id=id
-  console.log(this.id)
-  this.apiService.getUserPrf(this.id).subscribe(data => {
-  this.oneObj=data;
-   this.infoObj = this.oneObj.data;
+  public progressBar:any = true;
+  ngOnInit(): void {
+    let id = this.actRoute.snapshot.params['id'];
+    this.id=id
+    console.log(this.id)
+    this.apiService.getUserPrf(this.id).subscribe(data => {
+      this.oneObj=data;
+      this.infoObj = this.oneObj.data;
+    if(data){
+     this.progressBar = false;
+   }
    console.log(data);
-  //  this.oneObj = this.infoObj.data;
+   //  this.oneObj = this.infoObj.data;
   },
+  // progress-bar: false
    (error)=>{
   //   console.log(error);
   })
