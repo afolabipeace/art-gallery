@@ -11,8 +11,9 @@
 </head>
 <body class="bg-dark" style="background-color:black ;height:60vh;">
     <mat-progress-bar mode="indeterminate" style="height: 1vh;" *ngIf="progressBar"></mat-progress-bar>
-    <div class="container"> 
+    <div class="container bg-dark"> 
         <div class="row">
+            <button class="btn btn-success m-2"routerLink="/api">Back</button>
             <div class="col-lg-5 col-md-12 col-sm-7 mx-auto">
                 <div class="align-items-center text-center">
                     <div id="img" class="col-lg-5 col-md-5 col-sm-5"><br><br>
@@ -20,23 +21,23 @@
                         <img *ngIf="infoObj.image_id!=null"src="https://www.artic.edu/iiif/2/{{infoObj.image_id}}/full/843,/0/default.jpg"  alt="" style="width: 100%; height:25vh;">
                     </div>
                 </div>
-                <div class="col-lg-12 col-md-6 mx-auto p-3 h-100" style="color: white;">
+                <div class="col-lg-12 col-md-6 mx-auto p-3 h-100" style="color: red;">
                     <div class="col-12">
                         <div class=" text-danger text-center h5 " *ngIf="infoObj.artist_title!==null"> By :{{infoObj.artist_title}}</div>
                         <div class="h5" *ngIf="infoObj.artist_title===null"> By : Anonymous</div><br>
-                        <div class="h5">Origin: <i>{{infoObj.place_of_origin}}</i> </div>
-                        <div class="h5">Department: <i>{{infoObj.department_title}}</i></div>
-                        <div class=" text-danger h5" *ngIf="infoObj.thumbnail!==null">More Information: <br> 
-                            <p class="text-light">{{infoObj.thumbnail.alt_text}} <br>
-                                <span>{{infoObj.credit_line}}</span></p> 
+                        <div class="h5 text-light">Origin: <i class="text-danger">{{infoObj.place_of_origin}}</i> </div>
+                        <div class="h5 text-light">Department: <i class="text-danger">{{infoObj.department_title}}</i></div>
+                        <div class=" text-light h5" *ngIf="infoObj.thumbnail!==null">More Information: <br> 
+                            <i class="text-success">{{infoObj.thumbnail.alt_text}} <br>
+                                <span class="text-danger">{{infoObj.credit_line}}</span></i> 
                         </div>
                         <div>
-                            <span class="fw-bold" *ngIf="infoObj.material_titles.length > 0">Material Used Are:</span>
-                            <span class="text-capitalise" *ngFor="let info of infoObj.material_titles">{{info}}</span>
+                            <span class="fw-bold text-light" *ngIf="infoObj.material_titles.length > 0">Material Used Are: </span>
+                            <span class="text-capitalise text-danger" *ngFor="let info of infoObj.material_titles">{{info}}</span>
                         </div>
                         <div>
-                            <span class="fw-bold" *ngIf="infoObj.date_display!==null">Displayed In: </span>
-                            <span>{{infoObj.date_display}}</span>
+                            <span class="fw-bold text-light" *ngIf="infoObj.date_display!==null">Displayed In: </span>
+                            <span class="text-capitalise text-danger">{{infoObj.date_display}}</span>
                         </div>
                         <div class="row text-danger">
                             <div class="col-lg-6 col-md-4 mt-2" *ngIf="infoObj.classification_titles.length > 0">

@@ -24,9 +24,9 @@
                         <div class="overlay">
                             <div class="">
                                 
-                                <div class=" text-danger" *ngIf="info.artist_title!==null"> By :{{info.title}}</div>
-                                <div class=" text-danger" *ngIf="info.artist_title===null"> By : Anonymous</div>
-                                <p class="text-light fw-bold text-center" style="font-size: 15px;">{{info.place_of_origin}}</p>
+                                <div class="text-light fw-bold" *ngIf="info.artist_title!==null"> <span class="text-danger">By: </span> {{info.title}}</div>
+                                <div class=" text-danger" *ngIf="info.artist_title===null"> By:  Anonymous</div>
+                                <p class="text-light fw-bold text-center" style="font-size: 15px;"><span class="text-danger">Place Of Origin:</span> {{info.place_of_origin}}</p>
                             </div>
                             
                         </div>
